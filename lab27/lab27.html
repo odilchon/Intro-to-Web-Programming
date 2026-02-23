@@ -1,0 +1,82 @@
+<!-- Lab 27 - Full Box Model & Overflow -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model & Overflow</title>
+
+    <style>
+        /* Part 1 - Box Model */
+        .box {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 30px;
+            background-color: lightblue;
+        }
+
+        /* Part 2 - Width & Max-Width */
+        .container {
+            width: 80%;
+            max-width: 500px;
+            height: 150px;
+            background-color: lightgreen;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Part 3 - Overflow */
+        .overflow-box {
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: lightcoral;
+        }
+
+        .hidden {
+            overflow: hidden;
+        }
+
+        .scroll {
+            overflow: scroll;
+        }
+
+        .auto {
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lab 1: Box Model</h2>
+    <div class="box">Box Model Example</div>
+
+    <h2>Lab 2: Width & Max-Width</h2>
+    <div class="container">
+        This container takes 80% width but never exceeds 500px.
+    </div>
+
+    <h2>Lab 3: Overflow</h2>
+
+    <div class="overflow-box hidden">
+        Overflow: hidden – This text is too long and will be clipped.
+        Extra content continues outside the box but will not be visible.
+    </div>
+
+    <div class="overflow-box scroll">
+        Overflow: scroll – This text is too long, so a scrollbar will appear.
+        Extra content continues here to force overflow behavior.
+    </div>
+
+    <div class="overflow-box auto">
+        Overflow: auto – A scrollbar appears only when needed.
+        Additional content is added to test overflow automatically.
+    </div>
+
+</body>
+</html>

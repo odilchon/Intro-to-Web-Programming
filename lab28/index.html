@@ -1,0 +1,187 @@
+<!-- Lab 1: Display Property -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Property</title>
+    <style>
+        .block {
+            display: block;
+            width: 200px;
+            height: 50px;
+            background-color: lightblue;
+            margin-bottom: 10px;
+        }
+
+        .inline {
+            display: inline;
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            background-color: lightgreen;
+            margin: 5px;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Block Element</h2>
+    <div class="block">I am block</div>
+
+    <h2>Inline Element</h2>
+    <span class="inline">I am inline</span>
+    <span class="inline">I am inline</span>
+
+    <h2>Inline-Block Element</h2>
+    <div class="inline-block">I am inline-block</div>
+    <div class="inline-block">I am inline-block</div>
+
+    <h2>None (Hidden)</h2>
+    <div class="none">You can't see me</div>
+
+</body>
+</html>
+
+
+<!-- Lab 2: Position Property -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position Property</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+
+        .static {
+            position: static;
+            background-color: lightgray;
+        }
+
+        .relative {
+            position: relative;
+            left: 20px;
+            top: 10px;
+            background-color: lightblue;
+        }
+
+        .absolute {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            background-color: lightgreen;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: yellow;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Static Position</h2>
+    <div class="container">
+        <div class="static">I am static</div>
+    </div>
+
+    <h2>Relative Position</h2>
+    <div class="container">
+        <div class="relative">I am relative</div>
+    </div>
+
+    <h2>Absolute Position</h2>
+    <div class="container">
+        <div class="absolute">I am absolute</div>
+    </div>
+
+    <h2>Fixed Position</h2>
+    <div class="fixed">I am fixed</div>
+
+    <h2>Sticky Position (Scroll Down)</h2>
+    <div class="sticky">I am sticky</div>
+
+    <p style="height: 1500px;"></p>
+
+</body>
+</html>
+
+
+<!-- Lab 3: Z-Index Property -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z-Index Example</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .box1 {
+            background-color: red;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        .box2 {
+            background-color: blue;
+            top: 40px;
+            left: 40px;
+            z-index: 2;
+        }
+
+        .box3 {
+            background-color: green;
+            top: 60px;
+            left: 60px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Z-Index Example</h2>
+
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+    </div>
+
+</body>
+</html>

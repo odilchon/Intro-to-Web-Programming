@@ -1,0 +1,36 @@
+<!-- Lab 24 - Part 3: Feedback Form -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+</head>
+<body>
+
+<h2>Feedback</h2>
+
+<form action="submit_feedback.php" method="post">
+
+    <label for="feedback_name">Name:</label>
+    <input type="text" id="feedback_name" name="feedback_name" required>
+
+    <br><br>
+
+    <label for="feedback_email">Email:</label>
+    <input type="email" id="feedback_email" name="feedback_email" required>
+
+    <br><br>
+
+    <label for="feedback_text">Your Feedback:</label><br>
+    <textarea id="feedback_text" name="feedback_text" rows="4" cols="40" required></textarea>
+
+    <input type="hidden" name="page_id" value="lab24_feedback">
+
+    <br><br>
+
+    <button type="submit">Submit Feedback</button>
+
+</form>
+
+</body>
+</html>

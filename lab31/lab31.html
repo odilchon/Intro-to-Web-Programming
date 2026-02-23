@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Labs Combined</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+section {
+    margin: 40px 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+/* LAB 1 */
+
+.lab1-container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+}
+
+.lab1-box {
+    background-color: lightblue;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+}
+
+/* LAB 2 */
+
+.lab2-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+}
+
+.lab2-box {
+    background-color: lightblue;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+}
+
+/* LAB 3 */
+
+.lab3-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: 150px;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid black;
+    gap: 10px;
+}
+
+.lab3-box {
+    width: 50px;
+    height: 50px;
+    background-color: coral;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* LAB 4 */
+
+.lab4-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    gap: 10px;
+}
+
+.lab4-header,
+.lab4-footer {
+    grid-column: span 2;
+    background: lightblue;
+    text-align: center;
+    padding: 20px;
+}
+
+.lab4-sidebar {
+    background: lightgray;
+    padding: 20px;
+}
+
+.lab4-content {
+    background: lightgreen;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .lab4-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .lab4-header,
+    .lab4-footer {
+        grid-column: span 1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LAB 1 -->
+<section>
+<h2>Lab 1: Basic Grid Layout</h2>
+<div class="lab1-container">
+    <div class="lab1-box">1</div>
+    <div class="lab1-box">2</div>
+    <div class="lab1-box">3</div>
+    <div class="lab1-box">4</div>
+    <div class="lab1-box">5</div>
+    <div class="lab1-box">6</div>
+</div>
+</section>
+
+<!-- LAB 2 -->
+<section>
+<h2>Lab 2: Responsive Columns Using fr</h2>
+<div class="lab2-container">
+    <div class="lab2-box">1</div>
+    <div class="lab2-box">2</div>
+    <div class="lab2-box">3</div>
+    <div class="lab2-box">4</div>
+    <div class="lab2-box">5</div>
+    <div class="lab2-box">6</div>
+</div>
+</section>
+
+<!-- LAB 3 -->
+<section>
+<h2>Lab 3: Alignment of Grid Items</h2>
+<div class="lab3-container">
+    <div class="lab3-box">A</div>
+    <div class="lab3-box">B</div>
+    <div class="lab3-box">C</div>
+</div>
+</section>
+
+<!-- LAB 4 -->
+<section>
+<h2>Lab 4: Adaptive Website Layout</h2>
+<div class="lab4-container">
+    <div class="lab4-header">Header</div>
+    <div class="lab4-sidebar">Sidebar</div>
+    <div class="lab4-content">Main Content</div>
+    <div class="lab4-footer">Footer</div>
+</div>
+</section>
+
+</body>
+</html>

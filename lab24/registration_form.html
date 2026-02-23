@@ -1,0 +1,63 @@
+<!-- Lab 24 - Part 2: Registration Form -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+
+<h2>Create Account</h2>
+
+<form action="register_user.php" method="post" enctype="multipart/form-data">
+
+    <label for="full_name">Full Name:</label>
+    <input type="text" id="full_name" name="full_name" required>
+
+    <br><br>
+
+    <label for="email_address">Email:</label>
+    <input type="email" id="email_address" name="email_address" required>
+
+    <br><br>
+
+    <label for="user_password">Password:</label>
+    <input type="password" id="user_password" name="user_password" required>
+
+    <br><br>
+
+    <label for="user_age">Age:</label>
+    <input type="number" id="user_age" name="user_age" min="18" max="100">
+
+    <br><br>
+
+    <p>Gender:</p>
+    <input type="radio" id="gender_male" name="gender" value="male">
+    <label for="gender_male">Male</label>
+
+    <input type="radio" id="gender_female" name="gender" value="female">
+    <label for="gender_female">Female</label>
+
+    <br><br>
+
+    <p>Hobbies:</p>
+    <input type="checkbox" id="hobby_reading" name="hobbies[]" value="reading">
+    <label for="hobby_reading">Reading</label>
+
+    <input type="checkbox" id="hobby_sports" name="hobbies[]" value="sports">
+    <label for="hobby_sports">Sports</label>
+
+    <br><br>
+
+    <label for="profile_photo">Upload Profile Picture:</label>
+    <input type="file" id="profile_photo" name="profile_photo">
+
+    <br><br>
+
+    <button type="submit">Register</button>
+    <input type="reset" value="Clear Form">
+
+</form>
+
+</body>
+</html>
