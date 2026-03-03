@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Modify Paragraph</title>
+</head>
+<body>
+
+<p id="textBlock">This is the initial text.</p>
+<button onclick="updateParagraph()">Update Text</button>
+
+<script>
+    function updateParagraph() {
+        let paragraph = document.getElementById("textBlock");
+        paragraph.innerText = "The content has been updated!";
+    }
+</script>
+
+</body>
+</html>

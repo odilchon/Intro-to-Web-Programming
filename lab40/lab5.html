@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List Updater</title>
+</head>
+<body>
+
+<ul id="items">
+    <li>Item A</li>
+    <li>Item B</li>
+</ul>
+
+<button onclick="insertItem()">Insert Item</button>
+
+<script>
+    function insertItem() {
+        let listElement = document.getElementById("items");
+        let item = document.createElement("li");
+        item.innerText = "Additional Item";
+        listElement.appendChild(item);
+    }
+</script>
+
+</body>
+</html>

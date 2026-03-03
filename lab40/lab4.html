@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Switcher</title>
+</head>
+<body>
+
+<img id="photo" src="default.jpg" width="200">
+<button onclick="switchImage()">Switch Image</button>
+
+<script>
+    function switchImage() {
+        let picture = document.getElementById("photo");
+        picture.setAttribute("src", "updated-image.jpg");
+    }
+</script>
+
+</body>
+</html>

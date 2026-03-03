@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Background Modifier</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="square"></div>
+<button onclick="modifyColor()">Change Background</button>
+
+<script>
+    function modifyColor() {
+        let element = document.querySelector(".square");
+        element.style.backgroundColor = "blue";
+    }
+</script>
+
+</body>
+</html>

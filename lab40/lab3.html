@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Content Update</title>
+</head>
+<body>
+
+<div id="container">Press the button to update this section.</div>
+<button onclick="replaceContent()">Replace Content</button>
+
+<script>
+    function replaceContent() {
+        let section = document.getElementById("container");
+        section.innerHTML = "<h2>Content Successfully Changed!</h2>";
+    }
+</script>
+
+</body>
+</html>
