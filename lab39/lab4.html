@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4</title>
+</head>
+<body>
+<script>
+function requestData() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Data received"), 2000);
+    });
+}
+
+requestData()
+    .then(result => console.log(result))
+    .finally(() => console.log("Request completed"));
+</script>
+</body>
+</html>
