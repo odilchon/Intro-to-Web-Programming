@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Age Check</title>
+</head>
+<body>
+
+<form onsubmit="return validateNumber()">
+    <label>Age:</label>
+    <input type="text" id="ageField" placeholder="Enter age">
+    <button type="submit">Check</button>
+</form>
+
+<script>
+    function validateNumber() {
+        const ageValue = document.getElementById("ageField").value.trim();
+
+        if (ageValue === "" || isNaN(ageValue)) {
+            alert("Age must be a numeric value.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>

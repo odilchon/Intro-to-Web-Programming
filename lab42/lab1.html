@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Input Example</title>
+</head>
+<body>
+
+<label for="userField">Username:</label>
+<input type="text" id="userField" placeholder="Enter username">
+<button onclick="showInput()">Send</button>
+
+<p id="displayArea"></p>
+
+<script>
+    function showInput() {
+        const value = document.getElementById("userField").value;
+        document.getElementById("displayArea").innerText =
+            "You typed: " + value;
+    }
+</script>
+
+</body>
+</html>

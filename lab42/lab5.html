@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Complete Form Validation</title>
+</head>
+<body>
+
+<form id="registrationForm">
+    <input type="text" id="nameInput" placeholder="Name">
+    <input type="email" id="emailInput" placeholder="Email">
+    <input type="text" id="ageInput" placeholder="Age">
+    <button type="submit">Submit</button>
+</form>
+
+<p id="messageBox" style="color: green;"></p>
+
+<script>
+    document.getElementById("registrationForm")
+        .addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const name = document.getElementById("nameInput").value.trim();
+        const email = document.getElementById("emailInput").value.trim();
+        const age = document.getElementById("ageInput").value.trim();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!name || !email || !age) {
+            alert("All inputs are mandatory.");
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert("Invalid email.");
+            return;
+        }
+
+        if (isNaN(age) || Number(age) <= 0) {
+            alert("Age must be a positive number.");
+            return;
+        }
+
+        document.getElementById("messageBox").innerText =
+            "Validation successful!";
+    });
+</script>
+
+</body>
+</html>

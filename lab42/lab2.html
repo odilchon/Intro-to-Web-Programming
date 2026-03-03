@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Required Check</title>
+</head>
+<body>
+
+<form onsubmit="return checkFields()">
+    <label>Name:</label>
+    <input type="text" id="fullName" placeholder="Your name">
+
+    <label>Email:</label>
+    <input type="email" id="userEmail" placeholder="Your email">
+
+    <button type="submit">Send</button>
+</form>
+
+<script>
+    function checkFields() {
+        const nameValue = document.getElementById("fullName").value.trim();
+        const emailValue = document.getElementById("userEmail").value.trim();
+
+        if (!nameValue || !emailValue) {
+            alert("Please complete all required fields.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>

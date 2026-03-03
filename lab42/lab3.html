@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email Check</title>
+</head>
+<body>
+
+<form onsubmit="return verifyEmail()">
+    <input type="email" id="emailField" placeholder="Email address">
+    <button type="submit">Validate</button>
+</form>
+
+<script>
+    function verifyEmail() {
+        const emailInput = document.getElementById("emailField").value;
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!pattern.test(emailInput)) {
+            alert("Email format is incorrect.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>
