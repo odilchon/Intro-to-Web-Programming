@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stop Form Submission</title>
+</head>
+<body>
+
+<form id="userForm">
+    <input type="text" placeholder="Enter text" required>
+    <button type="submit">Submit</button>
+</form>
+
+<p id="statusMessage"></p>
+
+<script>
+    document.getElementById("userForm")
+        .addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        document.getElementById("statusMessage").innerText =
+            "Form submission has been blocked!";
+    });
+</script>
+
+</body>
+</html>

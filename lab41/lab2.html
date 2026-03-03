@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hover Interaction</title>
+    <style>
+        #hoverBox {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="hoverBox" onmouseover="applyColor()" onmouseout="removeColor()">
+    Hover Here
+</div>
+
+<script>
+    function applyColor() {
+        document.getElementById("hoverBox").style.backgroundColor = "blue";
+    }
+
+    function removeColor() {
+        document.getElementById("hoverBox").style.backgroundColor = "gray";
+    }
+</script>
+
+</body>
+</html>

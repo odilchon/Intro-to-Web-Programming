@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Multiple Event Listener</title>
+</head>
+<body>
+
+<button id="actionBtn">Click or Hover</button>
+
+<script>
+    let actionButton = document.getElementById("actionBtn");
+
+    actionButton.addEventListener("click", function () {
+        actionButton.style.backgroundColor = "green";
+    });
+
+    actionButton.addEventListener("mouseover", function () {
+        actionButton.style.backgroundColor = "yellow";
+    });
+
+    actionButton.addEventListener("mouseout", function () {
+        actionButton.style.backgroundColor = "lightgray";
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Keyboard Detection</title>
+</head>
+<body>
+
+<input type="text" onkeydown="displayKey(event)" placeholder="Start typing...">
+<p id="keyOutput">Press a key...</p>
+
+<script>
+    function displayKey(event) {
+        document.getElementById("keyOutput").innerText =
+            "Last Pressed Key: " + event.key;
+    }
+</script>
+
+</body>
+</html>
