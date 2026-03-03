@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Class Switcher</title>
+    <style>
+        .activeStyle {
+            color: #fff;
+            background: #1976d2;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<p id="infoText">Click to change my look.</p>
+<button id="toggleBtn">Switch Style</button>
+
+<script>
+    const toggleBtn = document.getElementById("toggleBtn");
+    const infoText = document.getElementById("infoText");
+
+    toggleBtn.addEventListener("click", () => {
+        infoText.classList.toggle("activeStyle");
+    });
+</script>
+
+</body>
+</html>

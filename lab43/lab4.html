@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Horizontal Movement</title>
+    <style>
+        #movingSquare {
+            width: 90px;
+            height: 90px;
+            background: crimson;
+            position: absolute;
+            top: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="movingSquare"></div>
+<button id="moveBtn">Start Moving</button>
+
+<script>
+    const square = document.getElementById("movingSquare");
+    const moveBtn = document.getElementById("moveBtn");
+
+    moveBtn.addEventListener("click", function() {
+
+        let offset = 0;
+
+        const timer = setInterval(() => {
+
+            if (offset >= 300) {
+                clearInterval(timer);
+                return;
+            }
+
+            offset += 5;
+            square.style.left = offset + "px";
+
+        }, 50);
+
+    });
+</script>
+
+</body>
+</html>

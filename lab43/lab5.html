@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blink Effect</title>
+</head>
+<body>
+
+<p id="blinkParagraph">This message changes color.</p>
+
+<script>
+    const blinkParagraph = document.getElementById("blinkParagraph");
+    let isRed = true;
+
+    setInterval(() => {
+        blinkParagraph.style.color = isRed ? "blue" : "red";
+        isRed = !isRed;
+    }, 1000);
+</script>
+
+</body>
+</html>

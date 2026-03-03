@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Style Modifier</title>
+</head>
+<body>
+
+<p id="paragraph">Press the button to modify my appearance.</p>
+<button id="styleBtn">Apply Style</button>
+
+<script>
+    const styleBtn = document.getElementById("styleBtn");
+    const paragraph = document.getElementById("paragraph");
+
+    styleBtn.addEventListener("click", function() {
+        paragraph.style.color = "#ffffff";
+        paragraph.style.backgroundColor = "#000000";
+        paragraph.style.fontSize = "26px";
+    });
+</script>
+
+</body>
+</html>

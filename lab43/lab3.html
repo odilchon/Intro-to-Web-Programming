@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Opacity Animation</title>
+</head>
+<body>
+
+<p id="fadeParagraph">This paragraph will slowly disappear.</p>
+<button id="startFade">Start Fade</button>
+
+<script>
+    const startFade = document.getElementById("startFade");
+    const fadeParagraph = document.getElementById("fadeParagraph");
+
+    startFade.addEventListener("click", function() {
+
+        let currentOpacity = 1;
+
+        function reduceOpacity() {
+            currentOpacity -= 0.05;
+
+            if (currentOpacity <= 0) {
+                fadeParagraph.style.opacity = 0;
+                return;
+            }
+
+            fadeParagraph.style.opacity = currentOpacity;
+            setTimeout(reduceOpacity, 100);
+        }
+
+        reduceOpacity();
+    });
+</script>
+
+</body>
+</html>
