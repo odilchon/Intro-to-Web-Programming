@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4</title>
+</head>
+<body>
+<script>
+function calculateDivision(x, y) {
+    try {
+        if (y === 0) {
+            throw new Error("Cannot divide by zero");
+        }
+        console.log(x / y);
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
+calculateDivision(10, 2);
+calculateDivision(5, 0);
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1</title>
+</head>
+<body>
+<script>
+function convertJSON(text) {
+    try {
+        let result = JSON.parse(text);
+        console.log(result);
+    } catch (err) {
+        console.error("Incorrect JSON format");
+    }
+}
+
+convertJSON('{"name": "Alice", "age": 25}');
+convertJSON('{name: Alice, age: 25}');
+</script>
+</body>
+</html>
