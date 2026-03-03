@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Task Manager{% endblock %}
+
+{% block content %}
+    <form method="GET" action="{{ url_for('main.search') }}" class="search-form">
+        <input type="text" name="q" placeholder="Search tasks..." value="{{ query if query else '' }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if tasks %}
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li class="task-item {% if task.completed %}completed{% endif %}">
+                    <div class="task-content">
+                        <h3>{{ task.title }}</h3>
+                        <p>{{ task.description }}</p>
+                        <small>Status: {{ "Completed" if task.completed else "Pending" }}</small>
+                    </div>
+
+                    <div class="task-actions">
+                        <a class="edit-btn" href="{{ url_for('main.edit_task', task_id=task.id) }}">Edit</a>
+
+                        <form method="POST" action="{{ url_for('main.toggle_task', task_id=task.id) }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit">
+                                {{ "Mark Pending" if task.completed else "Mark Completed" }}
+                            </button>
+                        </form>
+
+                        <form method="POST" action="{{ url_for('main.delete_task', task_id=task.id) }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit" onclick="return confirmDelete();">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks found.</p>
+    {% endif %}
+{% endblock %}
