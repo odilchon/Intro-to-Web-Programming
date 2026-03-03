@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager</title>
+
+<style>
+    body {
+        font-family: Verdana, sans-serif;
+        background: #eef2f7;
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+
+    .app {
+        background: #fff;
+        width: 420px;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .input-area {
+        display: flex;
+        gap: 8px;
+    }
+
+    input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .add {
+        background: #2e8b57;
+        color: white;
+    }
+
+    .remove {
+        background: #c0392b;
+        color: white;
+    }
+
+    .modify {
+        background: #2980b9;
+        color: white;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    li {
+        background: #fafafa;
+        margin-bottom: 8px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 6px;
+    }
+
+    li:hover {
+        background: #e3e3e3;
+    }
+
+    .done {
+        text-decoration: line-through;
+        color: #888;
+    }
+
+    .actions {
+        display: flex;
+        gap: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="app">
+    <h2>Task Manager</h2>
+
+    <div class="input-area">
+        <input type="text" id="taskField" placeholder="Write something...">
+        <button id="createBtn" class="add">Add</button>
+    </div>
+
+    <ul id="listContainer"></ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", initialize);
+
+const taskField = document.getElementById("taskField");
+const createBtn = document.getElementById("createBtn");
+const listContainer = document.getElementById("listContainer");
+
+createBtn.addEventListener("click", () => {
+    const value = taskField.value.trim();
+
+    if (value === "") {
+        alert("Please enter a task.");
+        return;
+    }
+
+    generateTask(value, false);
+    taskField.value = "";
+    storeData();
+});
+
+function generateTask(text, isDone) {
+
+    const item = document.createElement("li");
+    const label = document.createElement("span");
+
+    label.textContent = text;
+    if (isDone) label.classList.add("done");
+
+    label.addEventListener("click", () => {
+        label.classList.toggle("done");
+        storeData();
+    });
+
+    const buttonsWrapper = document.createElement("div");
+    buttonsWrapper.classList.add("actions");
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.classList.add("modify");
+
+    editBtn.addEventListener("click", () => {
+        const editInput = document.createElement("input");
+        editInput.type = "text";
+        editInput.value = label.textContent;
+
+        item.replaceChild(editInput, label);
+        editInput.focus();
+
+        editInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                label.textContent = editInput.value.trim();
+                item.replaceChild(label, editInput);
+                storeData();
+            }
+        });
+    });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("remove");
+
+    deleteBtn.addEventListener("click", () => {
+        listContainer.removeChild(item);
+        storeData();
+    });
+
+    buttonsWrapper.appendChild(editBtn);
+    buttonsWrapper.appendChild(deleteBtn);
+
+    item.appendChild(label);
+    item.appendChild(buttonsWrapper);
+
+    listContainer.appendChild(item);
+}
+
+function storeData() {
+    const data = [];
+
+    document.querySelectorAll("#listContainer li").forEach(entry => {
+        const text = entry.querySelector("span").textContent;
+        const isDone = entry.querySelector("span").classList.contains("done");
+        data.push({ text, isDone });
+    });
+
+    localStorage.setItem("taskData", JSON.stringify(data));
+}
+
+function initialize() {
+    const saved = localStorage.getItem("taskData");
+
+    if (!saved) return;
+
+    const parsed = JSON.parse(saved);
+    parsed.forEach(entry => generateTask(entry.text, entry.isDone));
+}
+</script>
+
+</body>
+</html>
