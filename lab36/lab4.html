@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures Example</title>
+</head>
+<body>
+
+<h1>Understanding Closures</h1>
+
+<script>
+    function createCounter() {
+        let counterValue = 0;
+
+        return function() {
+            counterValue++;
+            return counterValue;
+        };
+    }
+
+    const firstCounter = createCounter();
+    console.log(firstCounter());
+    console.log(firstCounter());
+
+    const secondCounter = createCounter();
+    console.log(secondCounter());
+</script>
+
+</body>
+</html>
