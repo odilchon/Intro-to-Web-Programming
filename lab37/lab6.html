@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 6: Object Keys & Values</title>
+    <script>
+        window.onload = function() {
+
+            let vehicle = {
+                brand: "Tesla",
+                model: "Model S",
+                year: 2023
+            };
+
+            let propertyNames = Object.keys(vehicle);
+            console.log("Property names:", propertyNames);
+
+            let propertyValues = Object.values(vehicle);
+            console.log("Property values:", propertyValues);
+        };
+    </script>
+</head>
+<body>
+    <h1>Open Console to see results</h1>
+</body>
+</html>
