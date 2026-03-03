@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Photo Gallery</title>
+<style>
+body { font-family:Verdana; text-align:center; background:#f8f9fa; }
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+.card {
+    background:#fff;
+    padding:10px;
+    border-radius:8px;
+    width:180px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+img { width:100%; border-radius:6px; }
+.caption { font-size:12px; margin-top:5px; }
+</style>
+</head>
+<body>
+
+<h2>Mini Gallery</h2>
+<div id="photoGrid" class="grid"></div>
+
+<script>
+async function loadPhotos() {
+    try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/photos?_limit=5");
+        const photos = await res.json();
+
+        const grid = document.getElementById("photoGrid");
+
+        photos.forEach(pic => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            const image = document.createElement("img");
+            image.src = pic.thumbnailUrl;
+
+            const caption = document.createElement("div");
+            caption.classList.add("caption");
+            caption.textContent = pic.title;
+
+            card.appendChild(image);
+            card.appendChild(caption);
+            grid.appendChild(card);
+        });
+
+    } catch(err) {
+        console.error("Image fetch error:", err);
+    }
+}
+
+loadPhotos();
+</script>
+
+</body>
+</html>

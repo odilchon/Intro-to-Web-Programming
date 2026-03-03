@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Users Viewer</title>
+</head>
+<body>
+
+<h2>Users Directory</h2>
+<ul id="usersContainer"></ul>
+
+<script>
+const usersContainer = document.getElementById("usersContainer");
+
+async function loadUsers() {
+    try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+        const data = await res.json();
+
+        data.forEach(person => {
+            const item = document.createElement("li");
+            item.textContent = `${person.name} | ${person.email}`;
+            usersContainer.appendChild(item);
+        });
+
+    } catch (err) {
+        console.error("Failed to fetch users:", err);
+    }
+}
+
+loadUsers();
+</script>
+
+</body>
+</html>
